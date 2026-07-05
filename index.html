@@ -24,6 +24,7 @@ color:white;
 .hero{
 width:100%;
 background:#111;
+position:relative;
 }
 
 .hero img{
@@ -43,15 +44,17 @@ nav a{
 display:inline-block;
 padding:12px 22px;
 margin:8px;
-text-decoration:none;
+text-decoration:underline;
 color:white;
 background:#2a2a2a;
 border-radius:8px;
 transition:.25s;
+font-weight:bold;
 }
 
 nav a:hover{
 background:#3d3d3d;
+transform:scale(1.05);
 }
 
 nav .youtube i{
@@ -60,6 +63,18 @@ color:#ff3030;
 
 nav .discord i{
 color:#7289da;
+}
+
+nav .twitch i{
+color:#9146ff;
+}
+
+nav .kick i{
+color:#53fc18;
+}
+
+nav .coffee i{
+color:#d7a86e;
 }
 
 .container{
@@ -73,11 +88,18 @@ background:#1b1b1b;
 border-radius:12px;
 padding:30px;
 margin-bottom:35px;
+box-shadow:0 0 18px rgba(0,0,0,.35);
+border:1px solid #2b2b2b;
 }
 
 .box h2{
 margin-bottom:15px;
 color:#d7d08c;
+}
+
+.box h3{
+margin-bottom:10px;
+color:#c9c9c9;
 }
 
 .funny{
@@ -111,6 +133,86 @@ margin:5px;
 border-radius:6px;
 }
 
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+background:#242424;
+padding:22px;
+border-radius:10px;
+border:1px solid #333;
+transition:.25s;
+}
+
+.card:hover{
+background:#2e2e2e;
+transform:translateY(-5px);
+}
+
+.card i{
+font-size:30px;
+margin-bottom:12px;
+color:#d7d08c;
+}
+
+.card p{
+line-height:1.5;
+color:#ddd;
+}
+
+.quote{
+font-size:24px;
+line-height:1.6;
+font-style:italic;
+background:#242424;
+border-left:5px solid #d7d08c;
+padding:20px;
+border-radius:8px;
+margin-top:15px;
+}
+
+.warning{
+background:#2a1f1f;
+border:1px solid #633;
+color:#ffd0d0;
+}
+
+.list{
+line-height:1.9;
+font-size:19px;
+}
+
+.social-box{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-top:20px;
+}
+
+.social-box a{
+display:inline-block;
+padding:14px 18px;
+background:#2a2a2a;
+color:white;
+text-decoration:underline;
+border-radius:8px;
+transition:.25s;
+font-weight:bold;
+}
+
+.social-box a:hover{
+background:#3d3d3d;
+transform:scale(1.04);
+}
+
+.social-box i{
+margin-right:8px;
+}
+
 footer{
 background:#181818;
 padding:25px;
@@ -131,6 +233,10 @@ width:90%;
 max-width:350px;
 }
 
+.text{
+font-size:19px;
+}
+
 }
 
 </style>
@@ -145,14 +251,29 @@ max-width:350px;
 
 <nav>
 
+<a class="twitch" href="https://twitch.tv/JanTundra" target="_blank">
+<i class="fa-brands fa-twitch"></i>
+Twitch — tu ginę na żywo
+</a>
+
 <a class="youtube" href="https://www.youtube.com/@JanTundra" target="_blank">
 <i class="fa-brands fa-youtube"></i>
-YouTube
+YouTube — akcje, loot i dramaty
+</a>
+
+<a class="kick" href="https://kick.com/jantundra" target="_blank">
+<i class="fa-solid fa-check"></i>
+Kick — drugi bunkier
+</a>
+
+<a class="coffee" href="https://buycoffee.to/jantundra?tab=subs" target="_blank">
+<i class="fa-solid fa-mug-hot"></i>
+Postaw kawę
 </a>
 
 <a class="discord" href="https://discord.gg/8JJracEKbM" target="_blank">
 <i class="fa-brands fa-discord"></i>
-Discord
+Discord — ekipa Tundry
 </a>
 
 </nav>
@@ -161,11 +282,18 @@ Discord
 
 <div class="box">
 
-<h2>Kim jestem ? Jan Tundra?</h2>
+<h2>Kim jestem? Jan Tundra?</h2>
 
 <p>
-Fan DayZ, survivalu i dobrej zabawy.
-Na kanale znajdziesz PvP, loot, przygody i mnóstwo śmiesznych sytuacji.
+Fan DayZ, survivalu i dobrej zabawy. Na kanale znajdziesz PvP, loot, przygody,
+dziwne decyzje, podejrzane sojusze i sytuacje, których nie da się logicznie wytłumaczyć.
+Raz jest spokojna wyprawa po konserwę, a raz pełna operacja wojskowa zakończona paniką,
+krzykiem i ucieczką przez las.
+</p>
+
+<p style="margin-top:15px;">
+Tutaj nie zawsze chodzi o wygraną. Czasem chodzi o to, żeby przeżyć jeszcze pięć minut,
+znaleźć kolegę, nie zgubić butów i nie zostać bohaterem mema.
 </p>
 
 <div class="tags">
@@ -174,6 +302,10 @@ Na kanale znajdziesz PvP, loot, przygody i mnóstwo śmiesznych sytuacji.
 <span class="tag">Survival</span>
 <span class="tag">Loot</span>
 <span class="tag">Teamplay</span>
+<span class="tag">Fasolka</span>
+<span class="tag">M4 marzeń</span>
+<span class="tag">Panika premium</span>
+<span class="tag">Świeżak z łopatą</span>
 </div>
 
 </div>
@@ -189,6 +321,8 @@ Na kanale znajdziesz PvP, loot, przygody i mnóstwo śmiesznych sytuacji.
 <p>
 ✔️ 3 godziny szukania M4<br>
 ✔️ 5 minut szukania kolegi<br>
+✔️ 20 minut przekonywania, że „mam plan”<br>
+✔️ 1 konserwa znaleziona po ciężkiej walce<br>
 ❌ Ginie od świeżaka z łopatą.
 </p>
 
@@ -199,16 +333,222 @@ Na kanale znajdziesz PvP, loot, przygody i mnóstwo śmiesznych sytuacji.
 ale jak znajdę fasolkę, to jej nie oddam.”
 </p>
 
+<br>
+
+<p>
+„W DayZ są dwa typy ludzi:
+ci, którzy mają loot,
+i Jan, który właśnie słyszy kroki za plecami.”
+</p>
+
 </div>
 
 </div>
 
 <div class="box">
 
-<h2>Społeczność</h2>
+<h2><i class="fa-solid fa-skull"></i> Co znajdziesz na kanale?</h2>
+
+<div class="grid">
+
+<div class="card">
+<i class="fa-solid fa-crosshairs"></i>
+<h3>PvP bez gwarancji sukcesu</h3>
+<p>
+Czasem precyzyjna akcja, czasem strzał w panice, a czasem pytanie:
+„Kto do mnie strzela i dlaczego to mój kolega?”
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-box-open"></i>
+<h3>Lootowanie wszystkiego</h3>
+<p>
+Jeśli da się to podnieść, Jan to sprawdzi. Nawet jeśli to zgniły owoc,
+jedna skarpeta albo puszka, której nikt nie chciał.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-person-running"></i>
+<h3>Taktyczne odwroty</h3>
+<p>
+To nie jest ucieczka. To strategiczne przegrupowanie z prędkością światła,
+najczęściej w stronę najbliższego drzewa.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-users"></i>
+<h3>Ekipa i chaos</h3>
+<p>
+Wspólne granie, śmiech, zgubieni znajomi i klasyczne:
+„Gdzie jesteś?” — „No tutaj.” — „Czyli gdzie?”
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="box warning">
+
+<h2><i class="fa-solid fa-triangle-exclamation"></i> Ostrzeżenie przed oglądaniem</h2>
+
+<p class="list">
+Oglądanie Jana Tundry może powodować:<br>
+✔️ nagłe zainteresowanie fasolką w puszce,<br>
+✔️ podejrzliwość wobec każdego krzaka,<br>
+✔️ przekonanie, że łopata to broń masowego rażenia,<br>
+✔️ chęć krzyczenia „TO NIE JA STRZELAŁEM!”, nawet gdy nikt nie pytał,<br>
+✔️ śmiech w najmniej odpowiednich momentach.
+</p>
+
+</div>
+
+<div class="box">
+
+<h2><i class="fa-solid fa-list-check"></i> Zasady przetrwania według Jana</h2>
+
+<p class="list">
+1. Jeśli słyszysz kroki — to pewnie problem.<br>
+2. Jeśli nie słyszysz kroków — problem właśnie się skrada.<br>
+3. Nie ufaj świeżakom. Szczególnie tym z łopatą.<br>
+4. Fasolka jest ważniejsza niż honor.<br>
+5. Nigdy nie mów „jest czysto”, bo gra potraktuje to jak zaproszenie do katastrofy.<br>
+6. Kolega zawsze mówi, że jest „obok”, ale nigdy nie wiadomo obok czego.<br>
+7. Najlepszy plan to taki, który brzmi dobrze przez pierwsze trzy sekundy.
+</p>
+
+</div>
+
+<div class="box">
+
+<h2><i class="fa-solid fa-calendar-days"></i> Kiedy wbić?</h2>
 
 <p>
-Dołącz na YouTube i Discord, aby wspólnie pograć i pośmiać się z kolejnych przygód w DayZ.
+Streamy i materiały pojawiają się wtedy, gdy Jan przeżyje wystarczająco długo,
+żeby kliknąć przycisk „start”. Najczęściej możesz spodziewać się:
+</p>
+
+<div class="grid">
+
+<div class="card">
+<i class="fa-brands fa-twitch"></i>
+<h3>Live na Twitchu</h3>
+<p>
+Luźne granie, akcje na żywo i momenty, których nie da się wyciąć w montażu.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-brands fa-youtube"></i>
+<h3>Filmy na YouTube</h3>
+<p>
+Najlepsze akcje, śmieszne sytuacje, skróty i dowody na to,
+że czasem naprawdę „prawie się udało”.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-check"></i>
+<h3>Kick</h3>
+<p>
+Alternatywne miejsce spotkań, gdy trzeba odpalić zapasową bazę operacyjną.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="box">
+
+<h2><i class="fa-solid fa-comments"></i> Legendarne teksty Jana</h2>
+
+<div class="quote">
+„Spokojnie, mam sytuację pod kontrolą.”
+<br>
+<span style="font-size:16px;color:#aaa;">— Jan, 2 sekundy przed utratą całego lootu</span>
+</div>
+
+<div class="quote">
+„To chyba był mój kolega... albo wróg... dobra, już nieważne.”
+</div>
+
+<div class="quote">
+„Ja tylko sprawdzę ten domek i wracam.”
+<br>
+<span style="font-size:16px;color:#aaa;">— ostatnie znane słowa przed 40-minutową wyprawą</span>
+</div>
+
+</div>
+
+<div class="box">
+
+<h2><i class="fa-solid fa-heart"></i> Społeczność</h2>
+
+<p>
+Dołącz na Twitchu, YouTube, Kicku i Discordzie, aby wspólnie pograć,
+pośmiać się z kolejnych przygód w DayZ i zobaczyć, jak Jan mówi:
+„Spokojnie, mam sytuację pod kontrolą” — chwilę przed totalną katastrofą.
+</p>
+
+<br>
+
+<p>
+A jeśli chcesz wesprzeć wyprawę po konserwy, bandaże i legendarną M4,
+możesz postawić kawę. Jan obiecuje, że nie wyda wszystkiego na amunicję,
+której potem i tak zapomni przeładować.
+</p>
+
+<div class="social-box">
+
+<a href="https://twitch.tv/JanTundra" target="_blank">
+<i class="fa-brands fa-twitch" style="color:#9146ff;"></i>
+Twitch
+</a>
+
+<a href="https://www.youtube.com/@JanTundra" target="_blank">
+<i class="fa-brands fa-youtube" style="color:#ff3030;"></i>
+YouTube
+</a>
+
+<a href="https://kick.com/jantundra" target="_blank">
+<i class="fa-solid fa-check" style="color:#53fc18;"></i>
+Kick
+</a>
+
+<a href="https://buycoffee.to/jantundra?tab=subs" target="_blank">
+<i class="fa-solid fa-mug-hot" style="color:#d7a86e;"></i>
+Postaw kawę
+</a>
+
+<a href="https://discord.gg/8JJracEKbM" target="_blank">
+<i class="fa-brands fa-discord" style="color:#7289da;"></i>
+Discord
+</a>
+
+</div>
+
+</div>
+
+<div class="box">
+
+<h2><i class="fa-solid fa-campground"></i> Misja kanału</h2>
+
+<p>
+Misja jest prosta: zebrać ekipę, wejść do świata DayZ, znaleźć loot,
+przeżyć jak najdłużej i zrobić z tego dobrą zabawę. Nie zawsze będzie profesjonalnie,
+nie zawsze będzie spokojnie, ale będzie swojsko, śmiesznie i po tundrowemu.
+</p>
+
+<br>
+
+<p>
+Bo w świecie Jana Tundry nawet zwykła wyprawa po wodę może skończyć się
+epicką historią, zdradą przez drzwi, pościgiem przez las i dramatycznym:
+„Kto zabrał moje buty?”.
 </p>
 
 </div>
@@ -217,7 +557,7 @@ Dołącz na YouTube i Discord, aby wspólnie pograć i pośmiać się z kolejnyc
 
 <footer>
 
-© Jana Tundry 2026c
+© Jan Tundra 2026 — loot może zniknąć, ale legenda zostaje.
 
 </footer>
 
