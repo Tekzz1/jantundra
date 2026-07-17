@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jan Tundra</title>
+<title>Jan Tundra | DayZ i Tundra Hardcore Survival POL</title>
+<meta name="description" content="Oficjalna strona Jana Tundry i polskiego serwera DayZ Tundra Hardcore Survival POL.">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -221,6 +222,78 @@ color:#888;
 margin-top:40px;
 }
 
+
+
+:root{
+ --bg:#0d0f0f;
+ --panel:#171a19;
+ --panel2:#202421;
+ --accent:#c9cf72;
+ --accent2:#8ea34a;
+ --muted:#a7aca9;
+ --line:#303631;
+}
+
+html{scroll-behavior:smooth;}
+body{background:radial-gradient(circle at top,#1b201d 0,#101211 34%,#0b0d0c 100%);}
+.hero::after{
+ content:"";
+ position:absolute;
+ left:0;right:0;bottom:0;
+ height:110px;
+ background:linear-gradient(transparent,var(--bg));
+ pointer-events:none;
+}
+nav{
+ position:sticky;
+ top:0;
+ z-index:50;
+ backdrop-filter:blur(12px);
+ background:rgba(18,21,19,.92);
+ box-shadow:0 8px 30px rgba(0,0,0,.32);
+}
+nav a{text-decoration:none;border:1px solid #343a35;}
+nav a:hover{border-color:var(--accent);}
+nav .server-link{background:linear-gradient(135deg,#596326,#8a963e);color:#fff;border-color:#aeb85b;}
+nav .server-link i{color:#eef5a7;}
+.container{max-width:1180px;}
+.box{background:linear-gradient(145deg,rgba(29,33,30,.98),rgba(20,23,21,.98));border-color:var(--line);}
+.box h2{color:var(--accent);letter-spacing:.3px;}
+.section-kicker{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#9da57b;font-weight:bold;margin-bottom:8px;}
+.server-hero{
+ padding:38px;
+ border:1px solid #57602d;
+ background:
+ linear-gradient(135deg,rgba(27,33,22,.96),rgba(15,18,16,.97)),
+ radial-gradient(circle at top right,rgba(201,207,114,.18),transparent 40%);
+ box-shadow:0 0 40px rgba(164,178,83,.08);
+}
+.server-title{font-size:clamp(30px,5vw,54px);line-height:1.08;margin-bottom:14px;color:#f2f5dc;}
+.server-subtitle{font-size:20px;line-height:1.65;color:#d6dacd;max-width:850px;}
+.server-status-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0;}
+.status-pill{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border-radius:999px;background:#232923;border:1px solid #3d473a;font-weight:bold;}
+.status-dot{width:10px;height:10px;border-radius:50%;background:#78d46f;box-shadow:0 0 12px #78d46f;}
+.server-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;}
+.btn-primary,.btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:9px;text-decoration:none;font-weight:bold;transition:.25s;}
+.btn-primary{background:linear-gradient(135deg,#899441,#b5bf62);color:#10120f;}
+.btn-secondary{background:#252a27;color:#fff;border:1px solid #3e4640;}
+.btn-primary:hover,.btn-secondary:hover{transform:translateY(-2px);filter:brightness(1.08);}
+.server-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:26px;}
+.info-tile{padding:18px;border-radius:10px;background:#222723;border:1px solid #343b35;}
+.info-tile span{display:block;color:#989f99;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.info-tile strong{font-size:18px;color:#f2f3e7;word-break:break-word;}
+.steps{counter-reset:joinstep;display:grid;gap:15px;margin-top:22px;}
+.step{counter-increment:joinstep;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:flex-start;padding:19px;border-radius:11px;background:#222623;border:1px solid #343a35;}
+.step::before{content:counter(joinstep);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--accent);color:#111;font-weight:900;font-size:20px;}
+.step h3{color:#f2f4dc;margin:0 0 6px;}
+.step p{color:#d4d8d2;line-height:1.6;}
+.copy-box{margin-top:18px;padding:15px 18px;border-radius:9px;background:#111412;border:1px dashed #65703a;font-family:Consolas,monospace;color:#e5eab9;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;}
+.copy-btn{border:0;background:#7f8b3f;color:#111;padding:9px 13px;border-radius:7px;font-weight:bold;cursor:pointer;}
+.mini-note{margin-top:14px;color:#aeb4ae;line-height:1.6;font-size:15px;}
+.server-rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px;}
+.rule-card{padding:18px;border-radius:10px;background:#222623;border-left:4px solid var(--accent2);}
+.rule-card strong{display:block;margin-bottom:7px;color:#eef1d6;}
+
 @media(max-width:800px){
 
 .funny{
@@ -236,6 +309,10 @@ max-width:350px;
 .text{
 font-size:19px;
 }
+.server-hero{padding:25px 20px;}
+nav{position:relative;}
+nav a{display:block;margin:8px auto;max-width:360px;}
+.step{grid-template-columns:42px 1fr;padding:16px;}
 
 }
 
@@ -250,6 +327,11 @@ font-size:19px;
 </header>
 
 <nav>
+
+<a class="server-link" href="#serwer">
+<i class="fa-solid fa-server"></i>
+Tundra Hardcore Survival POL
+</a>
 
 <a class="twitch" href="https://twitch.tv/JanTundra" target="_blank">
 <i class="fa-brands fa-twitch"></i>
@@ -279,6 +361,65 @@ Discord — ekipa Tundry
 </nav>
 
 <div class="container">
+
+<section id="serwer" class="box server-hero">
+<div class="section-kicker">Oficjalny serwer społeczności</div>
+<h1 class="server-title">Tundra Hardcore Survival POL</h1>
+<p class="server-subtitle">
+Polski serwer DayZ nastawiony na wymagający survival, współpracę, eksplorację i uczciwą rywalizację.
+Mniej przypadkowego chaosu, więcej klimatu, napięcia i prawdziwej walki o przetrwanie.
+</p>
+
+<div class="server-status-row">
+<span class="status-pill"><span class="status-dot"></span> Serwer aktywny</span>
+<span class="status-pill"><i class="fa-solid fa-language"></i> Język: polski</span>
+<span class="status-pill"><i class="fa-solid fa-shield-halved"></i> Hardcore Survival</span>
+<span class="status-pill"><i class="fa-brands fa-xbox"></i> Serwer Xbox</span>
+</div>
+
+<div class="server-actions">
+<a class="btn-primary" href="#jak-dolaczyc"><i class="fa-solid fa-right-to-bracket"></i> Jak dołączyć</a>
+<a class="btn-secondary" href="https://discord.gg/8JJracEKbM" target="_blank"><i class="fa-brands fa-discord"></i> Discord serwera</a>
+</div>
+
+<div class="server-info-grid">
+<div class="info-tile"><span>Nazwa serwera</span><strong>Tundra Hardcore Survival POL</strong></div>
+<div class="info-tile"><span>Platforma</span><strong>Xbox / DayZ</strong></div>
+<div class="info-tile"><span>Typ serwera</span><strong>Community</strong></div>
+<div class="info-tile"><span>Region</span><strong>Polska / Europa</strong></div>
+</div>
+</section>
+
+<section id="jak-dolaczyc" class="box">
+<div class="section-kicker">Instrukcja krok po kroku</div>
+<h2><i class="fa-solid fa-plug"></i> Jak dołączyć do serwera?</h2>
+
+<div class="steps">
+<div class="step"><div><h3>Uruchom DayZ na konsoli Xbox</h3><p>Włącz grę DayZ na Xbox One albo Xbox Series X|S i przejdź do menu głównego.</p></div></div>
+<div class="step"><div><h3>Otwórz listę serwerów</h3><p>Wybierz opcję <strong>Graj</strong>, a następnie przejdź do zakładki <strong>Community</strong> z serwerami społeczności.</p></div></div>
+<div class="step"><div><h3>Wyszukaj nazwę serwera</h3><p>Otwórz filtry lub wyszukiwarkę i wpisz: <strong>Tundra Hardcore Survival POL</strong>. Możesz też wpisać krótszą frazę: <strong>Tundra Hardcore</strong>.</p></div></div>
+<div class="step"><div><h3>Dodaj serwer do ulubionych</h3><p>Po odnalezieniu serwera zaznacz ikonę gwiazdki, aby łatwo znaleźć go przy następnym uruchomieniu gry.</p></div></div>
+<div class="step"><div><h3>Dołącz do rozgrywki</h3><p>Wybierz serwer i naciśnij <strong>Dołącz</strong>. Na Xbox nie instalujesz modów ze Steam ani nie wpisujesz adresu IP serwera.</p></div></div>
+<div class="step"><div><h3>Sprawdź regulamin na Discordzie</h3><p>Przed rozpoczęciem gry odwiedź Discord serwera, przeczytaj zasady i najważniejsze komunikaty administracji.</p></div></div>
+</div>
+
+<div class="copy-box">
+<span id="serverName">Tundra Hardcore Survival POL</span>
+<button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('serverName').innerText);this.innerText='Skopiowano!'">Kopiuj nazwę</button>
+</div>
+<p class="mini-note"><strong>Nie widzisz serwera?</strong> Wyczyść filtry na liście serwerów Xbox, wybierz zakładkę <strong>Community</strong>, ustaw właściwy region i wyszukaj krótszą frazę: <em>Tundra Hardcore</em>.</p>
+</section>
+
+<section class="box">
+<div class="section-kicker">Najważniejsze założenia</div>
+<h2><i class="fa-solid fa-shield"></i> Czego możesz się spodziewać?</h2>
+<div class="server-rules">
+<div class="rule-card"><strong>Wymagający survival</strong>Jedzenie, temperatura, choroby i zasoby mają realne znaczenie.</div>
+<div class="rule-card"><strong>Hardcore na Xbox</strong>Zmodyfikowane ustawienia serwera wzmacniają survival, bez instalowania dodatków przez graczy.</div>
+<div class="rule-card"><strong>Aktywna społeczność</strong>Wspólna gra, wydarzenia, handel i kontakt z administracją przez Discord.</div>
+<div class="rule-card"><strong>Uczciwe zasady</strong>Bez cheatów, wykorzystywania błędów i toksycznego niszczenia rozgrywki.</div>
+</div>
+</section>
 
 <div class="box">
 
