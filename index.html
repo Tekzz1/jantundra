@@ -1,706 +1,832 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jan Tundra | DayZ i Tundra Hardcore Survival POL</title>
-<meta name="description" content="Oficjalna strona Jana Tundry i polskiego serwera DayZ Tundra Hardcore Survival POL.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Jan Tundra</title>
 
-<style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#111;
-color:white;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top, rgba(80, 100, 80, 0.20), transparent 45%),
+                #080b09;
+            color: #e9eee9;
+            line-height: 1.7;
+        }
 
-.hero{
-width:100%;
-background:#111;
-position:relative;
-}
+        a {
+            color: inherit;
+        }
 
-.hero img{
-display:block;
-width:100%;
-height:auto;
-}
+        .page {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-nav{
-background:#1b1b1b;
-padding:18px;
-text-align:center;
-border-bottom:2px solid #444;
-}
+        /* =========================
+           HERO
+        ========================= */
 
-nav a{
-display:inline-block;
-padding:12px 22px;
-margin:8px;
-text-decoration:underline;
-color:white;
-background:#2a2a2a;
-border-radius:8px;
-transition:.25s;
-font-weight:bold;
-}
+        .hero {
+            position: relative;
+            min-height: 500px;
+            border-radius: 22px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.55);
+        }
 
-nav a:hover{
-background:#3d3d3d;
-transform:scale(1.05);
-}
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
 
-nav .youtube i{
-color:#ff3030;
-}
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(5,8,6,0.95) 0%,
+                    rgba(5,8,6,0.55) 45%,
+                    rgba(5,8,6,0.10) 100%
+                );
+        }
 
-nav .discord i{
-color:#7289da;
-}
+        .hero-content {
+            position: absolute;
+            z-index: 2;
+            bottom: 45px;
+            left: 45px;
+            right: 45px;
+        }
 
-nav .twitch i{
-color:#9146ff;
-}
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+            margin-bottom: 15px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.09);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d5dbd5;
+        }
 
-nav .kick i{
-color:#53fc18;
-}
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
 
-nav .coffee i{
-color:#d7a86e;
-}
+        .hero p {
+            max-width: 700px;
+            color: #d1d7d1;
+            font-size: 19px;
+        }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
+        /* =========================
+           NAV
+        ========================= */
 
-.box{
-background:#1b1b1b;
-border-radius:12px;
-padding:30px;
-margin-bottom:35px;
-box-shadow:0 0 18px rgba(0,0,0,.35);
-border:1px solid #2b2b2b;
-}
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
 
-.box h2{
-margin-bottom:15px;
-color:#d7d08c;
-}
+        .nav a {
+            text-decoration: none;
+            padding: 12px 17px;
+            border-radius: 10px;
+            background: #131814;
+            border: 1px solid rgba(255,255,255,0.07);
+            color: #dce1dc;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
 
-.box h3{
-margin-bottom:10px;
-color:#c9c9c9;
-}
+        .nav a:hover {
+            background: #202720;
+            transform: translateY(-2px);
+        }
 
-.funny{
-display:flex;
-gap:40px;
-align-items:center;
-flex-wrap:wrap;
-}
+        /* =========================
+           CARD
+        ========================= */
 
-.funny img{
-width:320px;
-border-radius:15px;
-box-shadow:0 0 20px rgba(0,0,0,.5);
-}
+        .card {
+            background: rgba(14,18,15,0.96);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px;
+            padding: 45px;
+            margin-bottom: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+        }
 
-.text{
-flex:1;
-font-size:22px;
-line-height:1.6;
-}
+        .card h2 {
+            color: #fff;
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
 
-.tags{
-margin-top:20px;
-}
+        .card h3 {
+            color: #f0f2ef;
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
 
-.tag{
-display:inline-block;
-padding:8px 15px;
-background:#2d2d2d;
-margin:5px;
-border-radius:6px;
-}
+        .card p {
+            color: #aeb7af;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-margin-top:20px;
-}
+        .highlight {
+            color: #fff;
+            font-weight: 700;
+        }
 
-.card{
-background:#242424;
-padding:22px;
-border-radius:10px;
-border:1px solid #333;
-transition:.25s;
-}
+        /* =========================
+           INTRO
+        ========================= */
 
-.card:hover{
-background:#2e2e2e;
-transform:translateY(-5px);
-}
+        .intro {
+            font-size: 21px !important;
+            line-height: 1.75;
+            color: #d0d6d0 !important;
+        }
 
-.card i{
-font-size:30px;
-margin-bottom:12px;
-color:#d7d08c;
-}
+        .quote {
+            margin: 30px 0;
+            padding: 24px 28px;
+            background: rgba(255,255,255,0.035);
+            border-left: 3px solid #9ca99b;
+            border-radius: 0 12px 12px 0;
+            color: #e0e5e0;
+            font-size: 18px;
+            font-style: italic;
+        }
 
-.card p{
-line-height:1.5;
-color:#ddd;
-}
+        /* =========================
+           WIFON
+        ========================= */
 
-.quote{
-font-size:24px;
-line-height:1.6;
-font-style:italic;
-background:#242424;
-border-left:5px solid #d7d08c;
-padding:20px;
-border-radius:8px;
-margin-top:15px;
-}
+        .wifon {
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+            padding: 35px;
+            border-radius: 16px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.06),
+                    rgba(255,255,255,0.015)
+                );
+            border: 1px solid rgba(255,255,255,0.08);
+        }
 
-.warning{
-background:#2a1f1f;
-border:1px solid #633;
-color:#ffd0d0;
-}
+        .wifon::before {
+            content: "🍜";
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            font-size: 70px;
+            opacity: 0.08;
+        }
 
-.list{
-line-height:1.9;
-font-size:19px;
-}
+        .wifon h2 {
+            margin-bottom: 15px;
+        }
 
-.social-box{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-margin-top:20px;
-}
+        .wifon p {
+            margin-bottom: 12px;
+        }
 
-.social-box a{
-display:inline-block;
-padding:14px 18px;
-background:#2a2a2a;
-color:white;
-text-decoration:underline;
-border-radius:8px;
-transition:.25s;
-font-weight:bold;
-}
+        .wifon-story {
+            color: #d5dbd5 !important;
+        }
 
-.social-box a:hover{
-background:#3d3d3d;
-transform:scale(1.04);
-}
+        .wifon-dialog {
+            margin: 20px 0;
+            padding: 18px 22px;
+            background: rgba(0,0,0,0.20);
+            border-radius: 10px;
+            color: #e8ece8;
+        }
 
-.social-box i{
-margin-right:8px;
-}
+        /* =========================
+           PHOTO + FUNNY SECTION
+        ========================= */
 
-footer{
-background:#181818;
-padding:25px;
-text-align:center;
-color:#888;
-margin-top:40px;
-}
+        .about-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 35px;
+            align-items: center;
+        }
 
+        .character {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
 
+        .funny-list {
+            list-style: none;
+            margin-top: 20px;
+        }
 
-:root{
- --bg:#0d0f0f;
- --panel:#171a19;
- --panel2:#202421;
- --accent:#c9cf72;
- --accent2:#8ea34a;
- --muted:#a7aca9;
- --line:#303631;
-}
+        .funny-list li {
+            padding: 9px 0;
+            color: #b9c1ba;
+        }
 
-html{scroll-behavior:smooth;}
-body{background:radial-gradient(circle at top,#1b201d 0,#101211 34%,#0b0d0c 100%);}
-.hero::after{
- content:"";
- position:absolute;
- left:0;right:0;bottom:0;
- height:110px;
- background:linear-gradient(transparent,var(--bg));
- pointer-events:none;
-}
-nav{
- position:sticky;
- top:0;
- z-index:50;
- backdrop-filter:blur(12px);
- background:rgba(18,21,19,.92);
- box-shadow:0 8px 30px rgba(0,0,0,.32);
-}
-nav a{text-decoration:none;border:1px solid #343a35;}
-nav a:hover{border-color:var(--accent);}
-nav .server-link{background:linear-gradient(135deg,#596326,#8a963e);color:#fff;border-color:#aeb85b;}
-nav .server-link i{color:#eef5a7;}
-.container{max-width:1180px;}
-.box{background:linear-gradient(145deg,rgba(29,33,30,.98),rgba(20,23,21,.98));border-color:var(--line);}
-.box h2{color:var(--accent);letter-spacing:.3px;}
-.section-kicker{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#9da57b;font-weight:bold;margin-bottom:8px;}
-.server-hero{
- padding:38px;
- border:1px solid #57602d;
- background:
- linear-gradient(135deg,rgba(27,33,22,.96),rgba(15,18,16,.97)),
- radial-gradient(circle at top right,rgba(201,207,114,.18),transparent 40%);
- box-shadow:0 0 40px rgba(164,178,83,.08);
-}
-.server-title{font-size:clamp(30px,5vw,54px);line-height:1.08;margin-bottom:14px;color:#f2f5dc;}
-.server-subtitle{font-size:20px;line-height:1.65;color:#d6dacd;max-width:850px;}
-.server-status-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0;}
-.status-pill{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border-radius:999px;background:#232923;border:1px solid #3d473a;font-weight:bold;}
-.status-dot{width:10px;height:10px;border-radius:50%;background:#78d46f;box-shadow:0 0 12px #78d46f;}
-.server-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;}
-.btn-primary,.btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:9px;text-decoration:none;font-weight:bold;transition:.25s;}
-.btn-primary{background:linear-gradient(135deg,#899441,#b5bf62);color:#10120f;}
-.btn-secondary{background:#252a27;color:#fff;border:1px solid #3e4640;}
-.btn-primary:hover,.btn-secondary:hover{transform:translateY(-2px);filter:brightness(1.08);}
-.server-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:26px;}
-.info-tile{padding:18px;border-radius:10px;background:#222723;border:1px solid #343b35;}
-.info-tile span{display:block;color:#989f99;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
-.info-tile strong{font-size:18px;color:#f2f3e7;word-break:break-word;}
-.steps{counter-reset:joinstep;display:grid;gap:15px;margin-top:22px;}
-.step{counter-increment:joinstep;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:flex-start;padding:19px;border-radius:11px;background:#222623;border:1px solid #343a35;}
-.step::before{content:counter(joinstep);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--accent);color:#111;font-weight:900;font-size:20px;}
-.step h3{color:#f2f4dc;margin:0 0 6px;}
-.step p{color:#d4d8d2;line-height:1.6;}
-.copy-box{margin-top:18px;padding:15px 18px;border-radius:9px;background:#111412;border:1px dashed #65703a;font-family:Consolas,monospace;color:#e5eab9;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;}
-.copy-btn{border:0;background:#7f8b3f;color:#111;padding:9px 13px;border-radius:7px;font-weight:bold;cursor:pointer;}
-.mini-note{margin-top:14px;color:#aeb4ae;line-height:1.6;font-size:15px;}
-.server-rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px;}
-.rule-card{padding:18px;border-radius:10px;background:#222623;border-left:4px solid var(--accent2);}
-.rule-card strong{display:block;margin-bottom:7px;color:#eef1d6;}
+        /* =========================
+           CHANNELS
+        ========================= */
 
-@media(max-width:800px){
+        .channels {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
 
-.funny{
-flex-direction:column;
-text-align:center;
-}
+        .channel {
+            padding: 24px;
+            border-radius: 14px;
+            background: #131814;
+            border: 1px solid rgba(255,255,255,0.07);
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
 
-.funny img{
-width:90%;
-max-width:350px;
-}
+        .channel:hover {
+            transform: translateY(-3px);
+            background: #1c221d;
+        }
 
-.text{
-font-size:19px;
-}
-.server-hero{padding:25px 20px;}
-nav{position:relative;}
-nav a{display:block;margin:8px auto;max-width:360px;}
-.step{grid-template-columns:42px 1fr;padding:16px;}
+        .channel strong {
+            display: block;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
 
-}
+        .channel span {
+            color: #879087;
+            font-size: 14px;
+        }
 
-</style>
+        /* =========================
+           COFFEE
+        ========================= */
 
+        .coffee-section {
+            text-align: center;
+            padding: 45px 25px;
+            background:
+                radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 60%),
+                #111611;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .coffee-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .coffee-section p {
+            max-width: 650px;
+            margin: 0 auto 20px;
+        }
+
+        .coffee-button {
+            display: inline-block;
+            padding: 15px 25px;
+            border-radius: 11px;
+            background: #f0f2ee;
+            color: #101310;
+            text-decoration: none;
+            font-weight: 800;
+            transition: 0.2s ease;
+        }
+
+        .coffee-button:hover {
+            transform: translateY(-3px);
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.08);
+        }
+
+        /* =========================
+           FINAL
+        ========================= */
+
+        .final-quote {
+            text-align: center;
+            padding: 25px;
+            color: #dce2dc;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 15px;
+            color: #606960;
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .card {
+                padding: 30px 22px;
+            }
+
+            .hero {
+                min-height: 420px;
+            }
+
+            .hero-image {
+                height: 420px;
+            }
+
+            .hero-content {
+                left: 25px;
+                right: 25px;
+                bottom: 30px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .character {
+                height: 300px;
+            }
+
+            .channels {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .page {
+                padding: 10px;
+            }
+
+            .hero {
+                border-radius: 15px;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+                letter-spacing: -3px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .intro {
+                font-size: 18px !important;
+            }
+
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav a {
+                text-align: center;
+            }
+
+            .wifon {
+                padding: 25px 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="hero">
-<img src="baner.png" alt="Jan Tundra">
-</header>
+<div class="page">
 
-<nav>
+    <!-- =========================
+         HERO - ZACHOWANE ZDJĘCIE
+    ========================== -->
 
-<a class="server-link" href="#serwer">
-<i class="fa-solid fa-server"></i>
-Tundra Hardcore Survival POL
-</a>
+    <section class="hero">
 
-<a class="twitch" href="https://twitch.tv/JanTundra" target="_blank">
-<i class="fa-brands fa-twitch"></i>
-Twitch — tu ginę na żywo
-</a>
+        <img
+            src="baner.png"
+            alt="Jan Tundra"
+            class="hero-image"
+        >
 
-<a class="youtube" href="https://www.youtube.com/@JanTundra" target="_blank">
-<i class="fa-brands fa-youtube"></i>
-YouTube — akcje, loot i dramaty
-</a>
+        <div class="hero-content">
 
-<a class="kick" href="https://kick.com/jantundra" target="_blank">
-<i class="fa-solid fa-check"></i>
-Kick — drugi bunkier
-</a>
+            <span class="badge">
+                Jan Tundra • Wolny strzelec
+            </span>
 
-<a class="coffee" href="https://buycoffee.to/jantundra?tab=subs" target="_blank">
-<i class="fa-solid fa-mug-hot"></i>
-Postaw kawę
-</a>
+            <h1>Jan Tundra</h1>
 
-<a class="discord" href="https://discord.gg/8JJracEKbM" target="_blank">
-<i class="fa-brands fa-discord"></i>
-Discord — ekipa Tundry
-</a>
+            <p>
+                Kiedyś prowadziłem serwer.
+                Dzisiaj po prostu gram, nagrywam i korzystam z wolnego czasu.
+            </p>
 
-</nav>
+        </div>
 
-<div class="container">
+    </section>
 
-<section id="serwer" class="box server-hero">
-<div class="section-kicker">Oficjalny serwer społeczności</div>
-<h1 class="server-title">Tundra Hardcore Survival POL</h1>
-<p class="server-subtitle">
-Polski serwer DayZ nastawiony na wymagający survival, współpracę, eksplorację i uczciwą rywalizację.
-Mniej przypadkowego chaosu, więcej klimatu, napięcia i prawdziwej walki o przetrwanie.
-</p>
 
-<div class="server-status-row">
-<span class="status-pill"><span class="status-dot"></span> Serwer aktywny</span>
-<span class="status-pill"><i class="fa-solid fa-language"></i> Język: polski</span>
-<span class="status-pill"><i class="fa-solid fa-shield-halved"></i> Hardcore Survival</span>
-<span class="status-pill"><i class="fa-brands fa-xbox"></i> Serwer Xbox</span>
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <nav class="nav">
+
+        <a href="https://twitch.tv/JanTundra" target="_blank">
+            Twitch
+        </a>
+
+        <a href="https://www.youtube.com/@JanTundra" target="_blank">
+            YouTube
+        </a>
+
+        <a href="https://kick.com/jantundra" target="_blank">
+            Kick
+        </a>
+
+        <a href="https://buycoffee.to/jantundra?tab=subs" target="_blank">
+            ☕ Postaw kawę
+        </a>
+
+        <a href="https://discord.gg/8JJracEKbM" target="_blank">
+            Discord
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         GŁÓWNY TEKST
+    ========================== -->
+
+    <section class="card">
+
+        <p class="intro">
+
+            Cześć!
+
+            Po pewnym czasie postanowiłem
+            <span class="highlight">rozstać się z prowadzeniem serwera DayZ.</span>
+
+            Nie oznacza to jednak końca mojej przygody z DayZ.
+            Wręcz przeciwnie — teraz mam po prostu więcej luzu i mogę
+            nagrywać filmy wtedy, kiedy mam na to czas i ochotę.
+
+        </p>
+
+        <div class="quote">
+
+            „Zarządzanie serwerem zamieniłem na zarządzanie własnym czasem.
+            Czyli obecnie jestem wolnym strzelcem — dosłownie i w przenośni.”
+
+        </div>
+
+        <p>
+            Bez ticketów, bez gaszenia pożarów, bez regulaminów i bez
+            wiadomości zaczynających się od:
+            <span class="highlight">
+                „Jan, mam tylko jedno szybkie pytanie...”
+            </span>
+        </p>
+
+        <p>
+            Teraz po prostu odpalam DayZ, gram, nagrywam filmy i próbuję
+            nie zginąć w sposób, który później będę musiał oglądać
+            na własnym YouTube.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         WIFON - ŻART
+    ========================== -->
+
+    <section class="card wifon">
+
+        <h2>🍜 Nowa kariera Jana</h2>
+
+        <p class="wifon-story">
+
+            Po odejściu od prowadzenia serwera trzeba było oczywiście
+            znaleźć sobie nowe zajęcie.
+
+        </p>
+
+        <p class="wifon-story">
+
+            Na szczęście przyjął mnie pewien Chińczyk.
+
+        </p>
+
+        <p class="wifon-story">
+
+            Pierwszego dnia zaprowadził mnie do ogromnego magazynu
+            pełnego zup WIFON.
+
+            Wszędzie kartony.
+
+            Setki kartonów.
+
+        </p>
+
+        <div class="wifon-dialog">
+
+            <strong>Ja:</strong><br>
+            „Szefie, a co dokładnie będę robił?”
+
+            <br><br>
+
+            <strong>Szef:</strong><br>
+            „Widzę, że prowadziłeś serwer DayZ.
+            Masz doświadczenie w papierkowej robocie.”
+
+            <br><br>
+
+            „Od dziś otwierasz torebki z przyprawami do WIFON-a.”
+
+        </div>
+
+        <p class="wifon-story">
+
+            I tak właśnie rozpoczęła się moja nowa kariera.
+
+        </p>
+
+        <p class="wifon-story">
+
+            Od rana do wieczora otwieram małe saszetki i wspominam dawne czasy.
+
+            Poziom stresu podobny jak przy administracji serwerem,
+            ale przynajmniej nikt nie zakłada ticketów.
+
+        </p>
+
+        <div class="quote">
+
+            „Nie prowadzę już serwera.
+            Teraz prowadzę dział otwierania saszetek WIFON.”
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ZDJĘCIE + INFORMACJE
+    ========================== -->
+
+    <section class="card">
+
+        <div class="about-grid">
+
+            <img
+                src="postac.jpg"
+                alt="Jan Tundra"
+                class="character"
+            >
+
+            <div>
+
+                <h2>🎮 Co dalej?</h2>
+
+                <p>
+                    Na dzień dzisiejszy jestem po prostu
+                    <span class="highlight">wolnym strzelcem.</span>
+                </p>
+
+                <p>
+                    Nagrywam filmy, gram i robię to wtedy,
+                    kiedy mam wolną chwilę.
+                </p>
+
+                <p>
+                    Bez wielkiej napinki i bez obowiązku prowadzenia
+                    wszystkiego od A do Z.
+                </p>
+
+                <ul class="funny-list">
+
+                    <li>🎮 Odpalam DayZ</li>
+                    <li>🎥 Nagrywam</li>
+                    <li>🔫 Szukam lootu</li>
+                    <li>🏃 Uciekam przed problemami</li>
+                    <li>💀 Umieram w najmniej odpowiednim momencie</li>
+                    <li>😂 Udaję, że wszystko było zaplanowane</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         POWRÓT DO SERWERA
+    ========================== -->
+
+    <section class="card">
+
+        <h2>🔄 Czy jeszcze kiedyś wrócę do prowadzenia serwera?</h2>
+
+        <p>
+
+            Możliwe.
+
+        </p>
+
+        <p>
+
+            Nigdy nie mówię „nigdy”, szczególnie jeśli chodzi o DayZ.
+
+            Może kiedyś znowu najdzie mnie ochota, żeby prowadzić własny
+            serwer i wrócić do tego całego administracyjnego chaosu.
+
+        </p>
+
+        <p>
+
+            Na dzień dzisiejszy jednak cieszę się większą swobodą,
+            nagrywam filmy i korzystam z tego, że jestem swoim własnym
+            administratorem.
+
+        </p>
+
+        <div class="quote">
+
+            „Kiedyś zarządzałem serwerem.
+            Dzisiaj zarządzam głównie tym, kiedy mam ochotę odpalić DayZ.”
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GDZIE MNIE ZNALEŹĆ
+    ========================== -->
+
+    <section class="card">
+
+        <h2>📺 Gdzie mnie znaleźć?</h2>
+
+        <p>
+            Jeśli chcesz zobaczyć, co aktualnie wyprawiam w DayZ,
+            znajdziesz mnie tutaj:
+        </p>
+
+        <div class="channels">
+
+            <a
+                href="https://twitch.tv/JanTundra"
+                target="_blank"
+                class="channel"
+            >
+                <strong>🟣 Twitch</strong>
+                <span>Tu czasem ginę na żywo.</span>
+            </a>
+
+            <a
+                href="https://www.youtube.com/@JanTundra"
+                target="_blank"
+                class="channel"
+            >
+                <strong>🔴 YouTube</strong>
+                <span>Akcje, loot i dramaty.</span>
+            </a>
+
+            <a
+                href="https://kick.com/jantundra"
+                target="_blank"
+                class="channel"
+            >
+                <strong>🟢 Kick</strong>
+                <span>Drugi bunkier.</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         KAWA
+    ========================== -->
+
+    <section class="card coffee-section">
+
+        <h2>☕ Możesz postawić mi kawę</h2>
+
+        <p>
+
+            Jeżeli podoba Ci się to, co nagrywam i chcesz trochę
+            wesprzeć moje materiały, możesz postawić mi kawę.
+
+        </p>
+
+        <p>
+
+            Nie obiecuję, że po tej kawie zacznę lepiej strzelać.
+
+            Ale przynajmniej będę miał kofeinę podczas kolejnej wyprawy
+            po loot.
+
+        </p>
+
+        <a
+            href="https://buycoffee.to/jantundra?tab=subs"
+            target="_blank"
+            class="coffee-button"
+        >
+            ☕ Postaw kawę
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         KONIEC
+    ========================== -->
+
+    <section class="card">
+
+        <div class="final-quote">
+
+            „Kiedyś administrator.<br>
+            Dzisiaj wolny strzelec.<br>
+            Jutro? Zobaczymy.”
+
+            <br><br>
+
+            „Na razie gram, nagrywam i otwieram saszetki WIFON-a.”
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        © Jan Tundra 2026 — dawniej administrator DayZ,
+        dziś wolny strzelec i specjalista ds. otwierania saszetek WIFON.
+
+    </footer>
+
 </div>
-
-<div class="server-actions">
-<a class="btn-primary" href="#jak-dolaczyc"><i class="fa-solid fa-right-to-bracket"></i> Jak dołączyć</a>
-<a class="btn-secondary" href="https://discord.gg/8JJracEKbM" target="_blank"><i class="fa-brands fa-discord"></i> Discord serwera</a>
-</div>
-
-<div class="server-info-grid">
-<div class="info-tile"><span>Nazwa serwera</span><strong>Tundra Hardcore Survival POL</strong></div>
-<div class="info-tile"><span>Platforma</span><strong>Xbox / DayZ</strong></div>
-<div class="info-tile"><span>Typ serwera</span><strong>Community</strong></div>
-<div class="info-tile"><span>Region</span><strong>Polska / Europa</strong></div>
-</div>
-</section>
-
-<section id="jak-dolaczyc" class="box">
-<div class="section-kicker">Instrukcja krok po kroku</div>
-<h2><i class="fa-solid fa-plug"></i> Jak dołączyć do serwera?</h2>
-
-<div class="steps">
-<div class="step"><div><h3>Uruchom DayZ na konsoli Xbox</h3><p>Włącz grę DayZ na Xbox One albo Xbox Series X|S i przejdź do menu głównego.</p></div></div>
-<div class="step"><div><h3>Otwórz listę serwerów</h3><p>Wybierz opcję <strong>Graj</strong>, a następnie przejdź do zakładki <strong>Community</strong> z serwerami społeczności.</p></div></div>
-<div class="step"><div><h3>Wyszukaj nazwę serwera</h3><p>Otwórz filtry lub wyszukiwarkę i wpisz: <strong>Tundra Hardcore Survival POL</strong>. Możesz też wpisać krótszą frazę: <strong>Tundra Hardcore</strong>.</p></div></div>
-<div class="step"><div><h3>Dodaj serwer do ulubionych</h3><p>Po odnalezieniu serwera zaznacz ikonę gwiazdki, aby łatwo znaleźć go przy następnym uruchomieniu gry.</p></div></div>
-<div class="step"><div><h3>Dołącz do rozgrywki</h3><p>Wybierz serwer i naciśnij <strong>Dołącz</strong>. Na Xbox nie instalujesz modów ze Steam ani nie wpisujesz adresu IP serwera.</p></div></div>
-<div class="step"><div><h3>Sprawdź regulamin na Discordzie</h3><p>Przed rozpoczęciem gry odwiedź Discord serwera, przeczytaj zasady i najważniejsze komunikaty administracji.</p></div></div>
-</div>
-
-<div class="copy-box">
-<span id="serverName">Tundra Hardcore Survival POL</span>
-<button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('serverName').innerText);this.innerText='Skopiowano!'">Kopiuj nazwę</button>
-</div>
-<p class="mini-note"><strong>Nie widzisz serwera?</strong> Wyczyść filtry na liście serwerów Xbox, wybierz zakładkę <strong>Community</strong>, ustaw właściwy region i wyszukaj krótszą frazę: <em>Tundra Hardcore</em>.</p>
-</section>
-
-<section class="box">
-<div class="section-kicker">Najważniejsze założenia</div>
-<h2><i class="fa-solid fa-shield"></i> Czego możesz się spodziewać?</h2>
-<div class="server-rules">
-<div class="rule-card"><strong>Wymagający survival</strong>Jedzenie, temperatura, choroby i zasoby mają realne znaczenie.</div>
-<div class="rule-card"><strong>Hardcore na Xbox</strong>Zmodyfikowane ustawienia serwera wzmacniają survival, bez instalowania dodatków przez graczy.</div>
-<div class="rule-card"><strong>Aktywna społeczność</strong>Wspólna gra, wydarzenia, handel i kontakt z administracją przez Discord.</div>
-<div class="rule-card"><strong>Uczciwe zasady</strong>Bez cheatów, wykorzystywania błędów i toksycznego niszczenia rozgrywki.</div>
-</div>
-</section>
-
-<div class="box">
-
-<h2>Kim jestem? Jan Tundra?</h2>
-
-<p>
-Fan DayZ, survivalu i dobrej zabawy. Na kanale znajdziesz PvP, loot, przygody,
-dziwne decyzje, podejrzane sojusze i sytuacje, których nie da się logicznie wytłumaczyć.
-Raz jest spokojna wyprawa po konserwę, a raz pełna operacja wojskowa zakończona paniką,
-krzykiem i ucieczką przez las.
-</p>
-
-<p style="margin-top:15px;">
-Tutaj nie zawsze chodzi o wygraną. Czasem chodzi o to, żeby przeżyć jeszcze pięć minut,
-znaleźć kolegę, nie zgubić butów i nie zostać bohaterem mema.
-</p>
-
-<div class="tags">
-<span class="tag">DayZ</span>
-<span class="tag">PvP</span>
-<span class="tag">Survival</span>
-<span class="tag">Loot</span>
-<span class="tag">Teamplay</span>
-<span class="tag">Fasolka</span>
-<span class="tag">M4 marzeń</span>
-<span class="tag">Panika premium</span>
-<span class="tag">Świeżak z łopatą</span>
-</div>
-
-</div>
-
-<div class="box funny">
-
-<img src="postac.jpg" alt="Jan Tundra">
-
-<div class="text">
-
-<h2>Największy koszmar Jana 😂</h2>
-
-<p>
-✔️ 3 godziny szukania M4<br>
-✔️ 5 minut szukania kolegi<br>
-✔️ 20 minut przekonywania, że „mam plan”<br>
-✔️ 1 konserwa znaleziona po ciężkiej walce<br>
-❌ Ginie od świeżaka z łopatą.
-</p>
-
-<br>
-
-<p>
-„Nie gram dla statystyk...
-ale jak znajdę fasolkę, to jej nie oddam.”
-</p>
-
-<br>
-
-<p>
-„W DayZ są dwa typy ludzi:
-ci, którzy mają loot,
-i Jan, który właśnie słyszy kroki za plecami.”
-</p>
-
-</div>
-
-</div>
-
-<div class="box">
-
-<h2><i class="fa-solid fa-skull"></i> Co znajdziesz na kanale?</h2>
-
-<div class="grid">
-
-<div class="card">
-<i class="fa-solid fa-crosshairs"></i>
-<h3>PvP bez gwarancji sukcesu</h3>
-<p>
-Czasem precyzyjna akcja, czasem strzał w panice, a czasem pytanie:
-„Kto do mnie strzela i dlaczego to mój kolega?”
-</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-box-open"></i>
-<h3>Lootowanie wszystkiego</h3>
-<p>
-Jeśli da się to podnieść, Jan to sprawdzi. Nawet jeśli to zgniły owoc,
-jedna skarpeta albo puszka, której nikt nie chciał.
-</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-person-running"></i>
-<h3>Taktyczne odwroty</h3>
-<p>
-To nie jest ucieczka. To strategiczne przegrupowanie z prędkością światła,
-najczęściej w stronę najbliższego drzewa.
-</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-users"></i>
-<h3>Ekipa i chaos</h3>
-<p>
-Wspólne granie, śmiech, zgubieni znajomi i klasyczne:
-„Gdzie jesteś?” — „No tutaj.” — „Czyli gdzie?”
-</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="box warning">
-
-<h2><i class="fa-solid fa-triangle-exclamation"></i> Ostrzeżenie przed oglądaniem</h2>
-
-<p class="list">
-Oglądanie Jana Tundry może powodować:<br>
-✔️ nagłe zainteresowanie fasolką w puszce,<br>
-✔️ podejrzliwość wobec każdego krzaka,<br>
-✔️ przekonanie, że łopata to broń masowego rażenia,<br>
-✔️ chęć krzyczenia „TO NIE JA STRZELAŁEM!”, nawet gdy nikt nie pytał,<br>
-✔️ śmiech w najmniej odpowiednich momentach.
-</p>
-
-</div>
-
-<div class="box">
-
-<h2><i class="fa-solid fa-list-check"></i> Zasady przetrwania według Jana</h2>
-
-<p class="list">
-1. Jeśli słyszysz kroki — to pewnie problem.<br>
-2. Jeśli nie słyszysz kroków — problem właśnie się skrada.<br>
-3. Nie ufaj świeżakom. Szczególnie tym z łopatą.<br>
-4. Fasolka jest ważniejsza niż honor.<br>
-5. Nigdy nie mów „jest czysto”, bo gra potraktuje to jak zaproszenie do katastrofy.<br>
-6. Kolega zawsze mówi, że jest „obok”, ale nigdy nie wiadomo obok czego.<br>
-7. Najlepszy plan to taki, który brzmi dobrze przez pierwsze trzy sekundy.
-</p>
-
-</div>
-
-<div class="box">
-
-<h2><i class="fa-solid fa-calendar-days"></i> Kiedy wbić?</h2>
-
-<p>
-Streamy i materiały pojawiają się wtedy, gdy Jan przeżyje wystarczająco długo,
-żeby kliknąć przycisk „start”. Najczęściej możesz spodziewać się:
-</p>
-
-<div class="grid">
-
-<div class="card">
-<i class="fa-brands fa-twitch"></i>
-<h3>Live na Twitchu</h3>
-<p>
-Luźne granie, akcje na żywo i momenty, których nie da się wyciąć w montażu.
-</p>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-youtube"></i>
-<h3>Filmy na YouTube</h3>
-<p>
-Najlepsze akcje, śmieszne sytuacje, skróty i dowody na to,
-że czasem naprawdę „prawie się udało”.
-</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-check"></i>
-<h3>Kick</h3>
-<p>
-Alternatywne miejsce spotkań, gdy trzeba odpalić zapasową bazę operacyjną.
-</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="box">
-
-<h2><i class="fa-solid fa-comments"></i> Legendarne teksty Jana</h2>
-
-<div class="quote">
-„Spokojnie, mam sytuację pod kontrolą.”
-<br>
-<span style="font-size:16px;color:#aaa;">— Jan, 2 sekundy przed utratą całego lootu</span>
-</div>
-
-<div class="quote">
-„To chyba był mój kolega... albo wróg... dobra, już nieważne.”
-</div>
-
-<div class="quote">
-„Ja tylko sprawdzę ten domek i wracam.”
-<br>
-<span style="font-size:16px;color:#aaa;">— ostatnie znane słowa przed 40-minutową wyprawą</span>
-</div>
-
-</div>
-
-<div class="box">
-
-<h2><i class="fa-solid fa-heart"></i> Społeczność</h2>
-
-<p>
-Dołącz na Twitchu, YouTube, Kicku i Discordzie, aby wspólnie pograć,
-pośmiać się z kolejnych przygód w DayZ i zobaczyć, jak Jan mówi:
-„Spokojnie, mam sytuację pod kontrolą” — chwilę przed totalną katastrofą.
-</p>
-
-<br>
-
-<p>
-A jeśli chcesz wesprzeć wyprawę po konserwy, bandaże i legendarną M4,
-możesz postawić kawę. Jan obiecuje, że nie wyda wszystkiego na amunicję,
-której potem i tak zapomni przeładować.
-</p>
-
-<div class="social-box">
-
-<a href="https://twitch.tv/JanTundra" target="_blank">
-<i class="fa-brands fa-twitch" style="color:#9146ff;"></i>
-Twitch
-</a>
-
-<a href="https://www.youtube.com/@JanTundra" target="_blank">
-<i class="fa-brands fa-youtube" style="color:#ff3030;"></i>
-YouTube
-</a>
-
-<a href="https://kick.com/jantundra" target="_blank">
-<i class="fa-solid fa-check" style="color:#53fc18;"></i>
-Kick
-</a>
-
-<a href="https://buycoffee.to/jantundra?tab=subs" target="_blank">
-<i class="fa-solid fa-mug-hot" style="color:#d7a86e;"></i>
-Postaw kawę
-</a>
-
-<a href="https://discord.gg/8JJracEKbM" target="_blank">
-<i class="fa-brands fa-discord" style="color:#7289da;"></i>
-Discord
-</a>
-
-</div>
-
-</div>
-
-<div class="box">
-
-<h2><i class="fa-solid fa-campground"></i> Misja kanału</h2>
-
-<p>
-Misja jest prosta: zebrać ekipę, wejść do świata DayZ, znaleźć loot,
-przeżyć jak najdłużej i zrobić z tego dobrą zabawę. Nie zawsze będzie profesjonalnie,
-nie zawsze będzie spokojnie, ale będzie swojsko, śmiesznie i po tundrowemu.
-</p>
-
-<br>
-
-<p>
-Bo w świecie Jana Tundry nawet zwykła wyprawa po wodę może skończyć się
-epicką historią, zdradą przez drzwi, pościgiem przez las i dramatycznym:
-„Kto zabrał moje buty?”.
-</p>
-
-</div>
-
-</div>
-
-<footer>
-
-© Jan Tundra 2026 — loot może zniknąć, ale legenda zostaje.
-
-</footer>
 
 </body>
 </html>
