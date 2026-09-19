@@ -948,5 +948,39 @@
 
 </div>
 
+
+
+<audio id="bgMusic" loop>
+    <source src="music/janek.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" style="position:fixed;bottom:25px;right:25px;z-index:9999;padding:12px 18px;border-radius:10px;background:#131814;color:white;border:1px solid rgba(255,255,255,.2);cursor:pointer;font-weight:700;">
+    ▶ Włącz muzykę
+</button>
+
+<input id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.7" style="position:fixed;bottom:25px;right:170px;z-index:9999;width:120px;">
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+const volume = document.getElementById("volumeControl");
+
+music.volume = 0.7;
+
+btn.onclick = () => {
+    if (music.paused) {
+        music.play();
+        btn.innerHTML = "⏸ Wyłącz muzykę";
+    } else {
+        music.pause();
+        btn.innerHTML = "▶ Włącz muzykę";
+    }
+};
+
+volume.oninput = () => {
+    music.volume = volume.value;
+};
+</script>
+
 </body>
 </html>
